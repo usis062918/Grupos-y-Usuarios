@@ -1,0 +1,66 @@
+iniciamos sesion con su - y colocamos la contraseña, esto nos permite iniciar sesion como usuarios root.
+-------------------------------------------------- -------------------------------------------------- ------------------------------------
+1. CREAR GRUPOS:
+Utilizamos el comando groupadd acompañado del nombre
+ej. 
+CASA de groupadd
+
+° para saber si el grupo se creo correctamente:
+ gato / etc / group
+
+° Aparecera de esta forma:
+CASA: x: 1001:
+-------------------------------------------------- -------------------------------------------------- ------------------------------------
+
+2. AGREGAR USUARIOS A GRUPOS:
+En este caso el usuario RENÉ, SANDRA y DAVIDRAMIREZ al grupo CASA.
+
+-para crear el usuario se utiliza el comando 
+useradd + nombre 
+ej.
+
+useradd RENÉ
+useradd SANDRA
+useradd DAVIDRAMIREZ
+
+° para ver si el usuario fue creado se utiliza:
+cat / etc / passwd, los usuarios creados se encontraran al final
+asi:
+RENÉ: x: 1002: 1003 :: / inicio / PAPÁ: / bin / sh
+SANDRA: x: 1001: 1002 :: / inicio / MAMÁ: / bin / sh
+DAVIDRAMIREZ: x: 1003: 1004 :: / inicio / FRANKLINALDAIR: / bin / sh
+
+° para agregar un usuario a un grupo se utiliza el comando:
+agregar usuario
+
+adduser RENE CASA
+adduser SANDRA CASA
+adduser DAVIDRAMIREZ CASA
+RENE, SANDRA, DAVIDRAMIREZ -----> Son los nombres de usuario que creamos.
+CASA -----> es el nombre del grupo que creamos.
+
+° para ver si ya se agregaron al grupo utilizamos el comando:
+gato / etc / group 
+
+y nos tiene que aperecer asi:
+
+CASA: X: 1001: DAVIDRAMIREZ, RENÉ, SANDRA
+-------------------------------------------------- -------------------------------------------------- ------------------------------------
+3. CAMBIAR EL NOMBRE AL GRUPO:
+
+Se utiliza el comando: 
+groupmod luego se tiene que escoger la variante en este caso es -n que es para cambiar el nombre, quedaria asi:
+
+groupmod -n CASA FAMILIA
+
+-n ------> es la variante que nos permite cambiar el nombre.
+CASA ----> nombre del grupo que creamos.
+FAMILIA -> nuevo nombre del grupo.
+
+° para ver si ya se aplico utilizamos el comando nuevamente:
+
+gato / etc / group
+
+nos tiene que aparecer asi:
+
+FAMILIA: X: 1001: DAVIDRAMIREZ, RENÉ, SANDRA
